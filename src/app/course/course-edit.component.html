@@ -22,6 +22,7 @@
     <mat-error *ngIf="form.controls['credits'].errors?.['required']">
       Credits must be a number.
     </mat-error>  
+    <p>Availability will calculate automatically based on total workloads of teaching professors. More course credits require more professors. Professors from other departments only contriute half.</p>
     <mat-form-field>
       <mat-label>Availability:</mat-label>
       <input matInput formControlName="availability"

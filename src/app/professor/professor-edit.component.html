@@ -19,7 +19,7 @@
       <mat-label>Part Time:</mat-label>
       <mat-checkbox  formControlName="partTime"></mat-checkbox>
       
-    
+    <p>Workload Status will calculate automatically based on total credits of courses taught.</p>
     <mat-form-field>
       <mat-label>Workload Status:</mat-label>
       <input matInput formControlName="workloadStatus"
@@ -36,6 +36,7 @@
     <mat-error *ngIf="form.controls['departmentId'].errors?.['required']">
       Department is required.
     </mat-error>
+    <p>Note: professors receive a penalty towards teaching courses outside of their department.</p>
 <mat-form-field>
   <mat-label>Courses Taught...</mat-label>
   <mat-select id="courseId" formControlName="courseId" multiple>

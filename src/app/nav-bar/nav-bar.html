@@ -6,6 +6,7 @@
 <a mat-flat-button color="primary" [routerLink]="['/courses']">Courses</a>
 <a mat-flat-button color="primary" [routerLink]="['/professors']">Professors</a>
 <a mat-flat-button color="primary" [routerLink]="['/departments']">Departments</a>
+<a mat-flat-button color="secondary" (click)="update()">Calculate Professor Workloads & Course Availability</a>
 <span class="separator"></span>
 @if (isLoggedIn) {
     <a mat-flat-button color="primary" (click)="authService.logout()">Logout</a>

@@ -118,7 +118,6 @@ export class ProfessorEditComponent {
         }
         else {
           var url = environment.apiUrl + '/api/Professors';
-          //professor.department = 
         this.http
           .post<Professor>(url, professor)
           .subscribe({
