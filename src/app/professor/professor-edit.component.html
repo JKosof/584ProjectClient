@@ -1,0 +1,56 @@
+<div class="professor-edit">
+  <h1>{{title}}</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>First Name:</mat-label>
+      <input matInput formControlName="firstName" placeholder="First Name" required> 
+    </mat-form-field>
+    <mat-error *ngIf="form.controls['firstName'].errors?.['required']">
+      First Name is required.
+    </mat-error>
+    <mat-form-field>
+      <mat-label>Last Name:</mat-label>
+      <input matInput formControlName="lastName" placeholder="Last Name" required>
+    </mat-form-field>
+    <mat-error *ngIf="form.controls['lastName'].errors?.['required']">
+      Last Name is required.
+    </mat-error>
+    
+      <mat-label>Part Time:</mat-label>
+      <mat-checkbox  formControlName="partTime"></mat-checkbox>
+      
+    
+    <mat-form-field>
+      <mat-label>Workload Status:</mat-label>
+      <input matInput formControlName="workloadStatus"
+              placeholder="Workload Status Not Yet Calculated" readonly>
+    </mat-form-field>
+<mat-form-field>
+  <mat-label>Select a Department...</mat-label>
+  <mat-select id="departmentId" formControlName="departmentId">
+    <mat-option *ngFor="let department of departments" [value]="department.id">
+      {{department.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+    <mat-error *ngIf="form.controls['departmentId'].errors?.['required']">
+      Department is required.
+    </mat-error>
+<mat-form-field>
+  <mat-label>Courses Taught...</mat-label>
+  <mat-select id="courseId" formControlName="courseId" multiple>
+    <mat-option *ngFor="let course of courses" [value]="course.id">
+      {{course.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+    <div>
+      <button mat-flat-button color="primary" type="submit" [disabled]="!form.valid">
+        {{ this.id ? "Save" : "Create" }}
+      </button>
+      <button mat-flat-button color="secondary" [routerLink]="['/professors']">
+        Cancel
+      </button>
+    </div>
+</form>
+</div>

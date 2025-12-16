@@ -1,0 +1,50 @@
+<div class="course-edit">
+  <h1>{{title}}</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Course Name:</mat-label>
+      <input matInput formControlName="name" placeholder="Course Name" required> 
+    </mat-form-field>
+    <mat-error *ngIf="form.controls['name'].errors?.['required']">
+      Course Name is required.
+    </mat-error>    
+    <mat-form-field>
+      <mat-label>Course Number:</mat-label>
+      <input matInput formControlName="courseNumber" placeholder="Course Number" required> 
+    </mat-form-field>
+    <mat-error *ngIf="form.controls['courseNumber'].errors?.['required']">
+      Course number must be a number.
+    </mat-error> 
+    <mat-form-field>
+      <mat-label>Credits:</mat-label>
+      <input matInput formControlName="credits" placeholder="credit amount" required> 
+    </mat-form-field>
+    <mat-error *ngIf="form.controls['credits'].errors?.['required']">
+      Credits must be a number.
+    </mat-error>  
+    <mat-form-field>
+      <mat-label>Availability:</mat-label>
+      <input matInput formControlName="availability"
+              placeholder="Availability Not Yet Calculated" readonly>
+    </mat-form-field>
+<mat-form-field>
+  <mat-label>Select a Department...</mat-label>
+  <mat-select id="departmentId" formControlName="departmentId">
+    <mat-option *ngFor="let department of departments" [value]="department.id">
+      {{department.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+    <mat-error *ngIf="form.controls['departmentId'].errors?.['required']">
+      Department is required.
+    </mat-error>
+    <div>
+      <button mat-flat-button color="primary" type="submit" [disabled]="!form.valid">
+        {{ this.id ? "Save" : "Create" }}
+      </button>
+      <button mat-flat-button color="secondary" [routerLink]="['/courses']">
+        Cancel
+      </button>
+    </div>
+</form>
+</div>

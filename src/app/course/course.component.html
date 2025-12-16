@@ -1,0 +1,24 @@
+<p>Courses</p>
+<p><input type="button" [routerLink]="['/course']" value="Add new Course" /></p>
+<table class="table table-stiped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Department</th>
+      <th>Course Title</th>
+      <th>Credits</th>
+      <th>Availability</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (course of (courses$ | async); track $index){
+    <tr>
+      <td><a [routerLink]="['/course', course.id]">{{ course.id }}</a></td>
+      <td>{{ course.department.name }}</td>
+      <td>{{ course.department.deptCode + "-" + course.courseNumber + " " + course.name }}</td>
+      <td>{{ course.credits }}</td>
+      <td>{{ course.availability }}</td>
+    </tr>
+}
+  </tbody>
+</table>

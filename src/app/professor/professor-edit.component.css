@@ -1,0 +1,8 @@
+mat-form-field {
+  display: block;
+  margin: 10px 0;
+}
+
+.hidden-field {
+      display: none; /* or visibility: hidden; height: 0; width: 0; */
+    }

@@ -1,0 +1,24 @@
+<p>Professors</p>
+<p><input type="button" [routerLink]="['/professor']" value="Add new Professor" /></p>
+<table class="table table-stiped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Department</th>
+      <th>Name</th>
+      <th>Part Time</th>
+      <th>Workload Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (professor of (professors$ | async); track $index){
+    <tr>
+      <td><a [routerLink]="['/professor', professor.id]">{{ professor.id }}</a></td>
+      <td>{{ professor.department.name }}</td>
+      <td>{{ professor.firstName + ' ' + professor.lastName }}</td>
+      <td>{{ professor.partTime }}</td>
+      <td>{{ professor.workloadStatus }}</td>
+    </tr>
+}
+  </tbody>
+</table>
